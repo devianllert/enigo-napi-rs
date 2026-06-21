@@ -8,10 +8,19 @@ use enigo::{
   Enigo, Mouse, Settings,
 };
 use napi_derive::napi;
+#[cfg(target_os = "windows")]
+use std::sync::Once;
+
+#[cfg(target_os = "windows")]
+static SET_DPI_AWARENESS: Once = Once::new();
 
 fn create_enigo() -> Option<Enigo> {
   #[cfg(target_os = "windows")]
-  enigo::set_dpi_awareness().unwrap();
+  SET_DPI_AWARENESS.call_once(|| {
+    if enigo::set_dpi_awareness().is_err() {
+      eprintln!("Failed to set DPI awareness (non-fatal)");
+    }
+  });
 
   match Enigo::new(&Settings::default()) {
     Ok(enigo) => Some(enigo),

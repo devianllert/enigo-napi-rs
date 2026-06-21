@@ -51,6 +51,7 @@
     "format:rs": "cargo fmt",
     "lint": "oxlint",
     "prepublishOnly": "napi prepublish -t npm",
+    "demo": "node simple-test.js",
     "test": "ava",
     "version": "napi version"
   },

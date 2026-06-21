@@ -9,7 +9,6 @@ use enigo::{
 };
 use napi_derive::napi;
 
-// 공통 Enigo 인스턴스 생성 함수
 fn create_enigo() -> Option<Enigo> {
   #[cfg(target_os = "windows")]
   enigo::set_dpi_awareness().unwrap();

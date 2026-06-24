@@ -106,22 +106,3 @@ export type KeyboardKey =
   | 'numpad7'
   | 'numpad8'
   | 'numpad9'
-export declare function keyDown(key: KeyboardKey): void
-
-export declare function keyTap(key: KeyboardKey): void
-
-export declare function keyUp(key: KeyboardKey): void
-
-export declare function mouseClick(button: MouseButton): void
-
-export declare function mouseDown(button: MouseButton): void
-
-export declare function mouseScroll(length: number, isVertical: boolean): void
-
-export declare function mouseUp(button: MouseButton): void
-
-export declare function moveMouseAbs(x: number, y: number): void
-
-export declare function moveMouseRel(x: number, y: number): void
-
-export declare function typeText(text: string): void

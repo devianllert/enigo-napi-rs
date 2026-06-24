@@ -21,10 +21,12 @@
   "files": [
     "index.d.ts",
     "index.js",
-    "browser.js"
+    "browser.js",
+    "types-header.d.ts"
   ],
   "napi": {
     "binaryName": "enigo-napi-rs",
+    "dtsHeaderFile": "types-header.d.ts",
     "targets": [
       "x86_64-apple-darwin",
       "aarch64-apple-darwin",

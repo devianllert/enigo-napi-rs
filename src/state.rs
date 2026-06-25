@@ -1,7 +1,7 @@
 use enigo::{Enigo, Settings};
-use std::sync::{Arc, Mutex, OnceLock};
 #[cfg(target_os = "windows")]
 use std::sync::Once;
+use std::sync::{Arc, Mutex, OnceLock};
 
 #[cfg(target_os = "windows")]
 static SET_DPI_AWARENESS: Once = Once::new();

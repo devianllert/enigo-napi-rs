@@ -177,9 +177,13 @@ fn parse_function_key(name: &str) -> Option<Key> {
     Ok(18) => Some(Key::F18),
     Ok(19) => Some(Key::F19),
     Ok(20) => Some(Key::F20),
+    #[cfg(not(target_os = "macos"))]
     Ok(21) => Some(Key::F21),
+    #[cfg(not(target_os = "macos"))]
     Ok(22) => Some(Key::F22),
+    #[cfg(not(target_os = "macos"))]
     Ok(23) => Some(Key::F23),
+    #[cfg(not(target_os = "macos"))]
     Ok(24) => Some(Key::F24),
     _ => None,
   }

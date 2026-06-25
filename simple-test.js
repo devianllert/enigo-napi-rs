@@ -66,6 +66,9 @@ const actions = {
 
   async middle() {
     console.log("mouseClick('middle')")
+    await sleep(300)
+    mouseClick('middle')
+    await sleep(300)
     mouseClick('middle')
   },
 

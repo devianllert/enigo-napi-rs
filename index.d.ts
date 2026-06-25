@@ -102,17 +102,33 @@ export type KeyboardKey =
   | 'numpad7'
   | 'numpad8'
   | 'numpad9'
-export declare function keyDown(key: KeyboardKey): void
+export declare function getMousePos(): MousePosition | null
 
-export declare function keyTap(key: KeyboardKey): void
+export declare function keyDown(key: KeyboardKey, modifier?: Array<string> | undefined | null): void
 
-export declare function keyUp(key: KeyboardKey): void
+export declare function keyTap(key: KeyboardKey, modifier?: Array<string> | undefined | null): void
+
+export declare function keyToggle(key: KeyboardKey, down: string, modifier?: Array<string> | undefined | null): void
+
+export declare function keyUp(key: KeyboardKey, modifier?: Array<string> | undefined | null): void
 
 export declare function mouseClick(button: MouseButton): void
 
+export declare function mouseDoubleClick(button: MouseButton): void
+
 export declare function mouseDown(button: MouseButton): void
 
+export declare function mouseDrag(x: number, y: number): void
+
+/** Mouse position */
+export interface MousePosition {
+  x: number
+  y: number
+}
+
 export declare function mouseScroll(length: number, isVertical: boolean): void
+
+export declare function mouseScrollXy(x: number, y: number): void
 
 export declare function mouseUp(button: MouseButton): void
 
@@ -120,4 +136,12 @@ export declare function moveMouseAbs(x: number, y: number): void
 
 export declare function moveMouseRel(x: number, y: number): void
 
+export declare function moveMouseSmooth(x: number, y: number): void
+
+export declare function moveMouseSmoothWithSpeed(x: number, y: number, speed: number): void
+
 export declare function typeText(text: string): void
+
+export declare function typeTextDelayed(text: string, cpm: number): void
+
+export declare function unicodeTap(ch: string): void

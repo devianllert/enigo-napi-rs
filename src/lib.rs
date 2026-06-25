@@ -195,16 +195,6 @@ fn parse_right_alt() -> Key {
   Key::RMenu
 }
 
-#[cfg(target_os = "macos")]
-fn parse_right_meta() -> Key {
-  Key::RCommand
-}
-
-#[cfg(target_os = "windows")]
-fn parse_right_meta() -> Key {
-  Key::RWin
-}
-
 fn parse_key(name: &str) -> Option<ParsedKey> {
   let name = name.trim();
   if name.is_empty() {
@@ -255,10 +245,12 @@ fn parse_key(name: &str) -> Option<ParsedKey> {
     }
     "rcontrol" | "rightcontrol" => Some(ParsedKey::Key(Key::RControl)),
     "rshift" | "rightshift" => Some(ParsedKey::Key(Key::RShift)),
+    #[cfg(any(target_os = "macos", target_os = "windows"))]
     "ralt" | "roption" | "rightalt" => Some(ParsedKey::Key(parse_right_alt())),
-    "rmeta" | "rcommand" | "rcmd" | "rwin" | "rightmeta" => {
-      Some(ParsedKey::Key(parse_right_meta()))
-    }
+    #[cfg(target_os = "macos")]
+    "rmeta" | "rcommand" | "rcmd" | "rwin" | "rightmeta" => Some(ParsedKey::Key(Key::RCommand)),
+    #[cfg(target_os = "windows")]
+    "rmeta" | "rcommand" | "rcmd" | "rwin" | "rightmeta" => Some(ParsedKey::Key(Key::RWin)),
     "numpad0" => Some(ParsedKey::Key(Key::Numpad0)),
     "numpad1" => Some(ParsedKey::Key(Key::Numpad1)),
     "numpad2" => Some(ParsedKey::Key(Key::Numpad2)),

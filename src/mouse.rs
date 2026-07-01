@@ -217,15 +217,17 @@ impl Mouse {
 
 pub fn invalid_button_message(button: &str) -> String {
   format!(
-    "Invalid button name: {button}. Valid options are: left, right, middle, scrollUp, scrollDown, scrollLeft, scrollRight"
+    "Invalid button name: {button}. Valid options are: left, middle, right, back, forward, scrollUp, scrollDown, scrollLeft, scrollRight"
   )
 }
 
 pub fn parse_button(button: &str) -> Option<Button> {
   match button.to_lowercase().as_str() {
     "left" => Some(Button::Left),
-    "right" => Some(Button::Right),
     "middle" => Some(Button::Middle),
+    "right" => Some(Button::Right),
+    "back" => Some(Button::Back),
+    "forward" => Some(Button::Forward),
     "scrollup" | "scroll_up" => Some(Button::ScrollUp),
     "scrolldown" | "scroll_down" => Some(Button::ScrollDown),
     "scrollleft" | "scroll_left" => Some(Button::ScrollLeft),

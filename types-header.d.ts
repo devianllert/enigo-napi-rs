@@ -4,8 +4,10 @@
 /** Mouse button or wheel direction accepted by mouseClick / mouseDown / mouseUp */
 export type MouseButton =
   | 'left'
-  | 'right'
   | 'middle'
+  | 'right'
+  | 'back'
+  | 'forward'
   | 'scrollUp'
   | 'scrollDown'
   | 'scrollLeft'
@@ -69,6 +71,14 @@ export type KeyboardKey =
   | 'f18'
   | 'f19'
   | 'f20'
+  // only on windows
+  | 'f21'
+  // only on windows
+  | 'f22'
+  // only on windows
+  | 'f23'
+  // only on windows
+  | 'f24'
   | 'enter'
   | 'escape'
   | 'backspace'
